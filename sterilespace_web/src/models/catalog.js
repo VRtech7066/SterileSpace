@@ -1,6 +1,6 @@
 // Everything that can be summoned, in display order, plus the builder that turns a model into GPU buffers:
 //   target (xyz, normalized into the unit globe), offset (xyz explode vector + w stage), tint (rgb per particle).
-import { WONDERS } from './wonders.js';
+import { WONDERS } from './sterile.js';
 import { ENGINES } from './engines.js';
 import { VEHICLES } from './vehicles.js';
 import { ANATOMY } from './anatomy.js';

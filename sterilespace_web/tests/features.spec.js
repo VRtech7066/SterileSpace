@@ -239,7 +239,7 @@ test('20 record a video of the session (real-time)', async ({ page }) => {
   const [download] = await Promise.all([page.waitForEvent('download'), page.keyboard.press('k')]);
   const path = `.tmp/${download.suggestedFilename()}`;
   await download.saveAs(path);
-  expect(download.suggestedFilename()).toMatch(/^wondersnap-.*\.webm$/);
+  expect(download.suggestedFilename()).toMatch(/^sterilespace-.*\.webm$/);
   const s = await status(page);
   expect(s.recording).toBe(false);
   expect(s.lastRecording.size).toBeGreaterThan(20_000);

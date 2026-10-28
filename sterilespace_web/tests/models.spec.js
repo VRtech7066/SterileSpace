@@ -1,4 +1,4 @@
-﻿// Model geometry: exact counts, determinism, speed, REAL measurements (ported from tests/test_all.py) and
+// Model geometry: exact counts, determinism, speed, REAL measurements (ported from tests/test_all.py) and
 // explode-direction sanity for every engine / the car. Runs the real modules inside the browser.
 import { test, expect } from '@playwright/test';
 import { watchErrors } from './helpers.js';
@@ -42,7 +42,7 @@ test('every model: exactly N finite points inside the globe, deterministic, fast
 
 test('wonders match real-world measurements', async ({ page }) => {
   const m = await page.evaluate(async () => {
-    const { WONDERS } = await import('/src/models/wonders.js');
+    const { WONDERS } = await import('/src/models/sterile.js');
     const { build } = await import('/src/lib/sampling.js');
     const { makeRng } = await import('/src/lib/rng.js');
     const raw = (name, n = 60000) => {

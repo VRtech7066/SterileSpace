@@ -2,8 +2,6 @@
 
 SterileSpace is an interactive spatial computing environment designed for touchless manipulation in clinical and academic settings. By combining a custom WebGL physics engine for high-density point-cloud rendering, PyVista for 3D data pipelines, and MediaPipe for spatial input, the application allows users to rotate, explode, and assemble complex anatomical models using real-time hand gestures and voice commands. No mouse, no controller, and zero physical contact required.
 
-![SterileSpace showing a glowing human brain made of particles](docs/preview.png)
-
 ## Quick start
 
 You need [Node.js](https://nodejs.org/) 18 or newer and a webcam (optional: everything also works with the mouse and keyboard). Python is utilized for the 3D anatomical data processing pipeline.
@@ -137,7 +135,7 @@ src/features.js            voice commands, read-aloud, video recorder
 src/gl/                    WebGL2 shaders and renderer (transform-feedback physics)
 src/logic/                 gestures, state machine, controller, CPU physics twin
 src/lib/                   vector math, samplers, procedural shapes
-src/models/                wonders, anatomy, biology, engines, vehicles, machines
+src/models/                sterile, anatomy, biology, engines, vehicles, machines
 tests/                     Playwright specs
 ```
 

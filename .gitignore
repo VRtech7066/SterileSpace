@@ -25,7 +25,7 @@ build/
 # Node Dependencies & Package Managers
 # ------------------------------------------------------------------------------
 node_modules/
-wondersnap_web/node_modules/
+sterilespace_web/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -33,9 +33,9 @@ yarn-error.log*
 # ------------------------------------------------------------------------------
 # Testing & Build Artifacts
 # ------------------------------------------------------------------------------
-wondersnap_web/playwright-report/
-wondersnap_web/test-results/
-wondersnap_web/screenshots/
+sterilespace_web/playwright-report/
+sterilespace_web/test-results/
+sterilespace_web/screenshots/
 playwright-report/
 test-results/
 screenshots/

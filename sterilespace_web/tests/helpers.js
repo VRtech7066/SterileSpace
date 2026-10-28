@@ -13,20 +13,20 @@ export function watchErrors(page) {
   return () => expect(errors, errors.join('\n')).toEqual([]);
 }
 
-/** Open the app in manual-clock mode (frames only advance through wonderSnap.advance). */
+/** Open the app in manual-clock mode (frames only advance through sterileSpace.advance). */
 export async function openApp(page, query = '') {
   await page.goto(`/?manual=1&dpr=1&${query}`);
-  await page.waitForFunction(() => window.wonderSnap);
-  await page.evaluate(() => window.wonderSnap.ready());
-  await page.evaluate(() => window.wonderSnap.advance(1 / 60, null));
+  await page.waitForFunction(() => window.sterileSpace || window.wonderSnap);
+  await page.evaluate(() => (window.sterileSpace || window.wonderSnap).ready());
+  await page.evaluate(() => (window.sterileSpace || window.wonderSnap).advance(1 / 60, null));
 }
 
 export async function shot(page, name) {
   await page.screenshot({ path: `${SHOTS}/${name}.png` });
 }
 
-export const status = (page) => page.evaluate(() => window.wonderSnap.status());
-export const cloud = (page) => page.evaluate(() => window.wonderSnap.cloud());
+export const status = (page) => page.evaluate(() => (window.sterileSpace || window.wonderSnap).status());
+export const cloud = (page) => page.evaluate(() => (window.sterileSpace || window.wonderSnap).cloud());
 
 const HAND = { cx: 0.33, cy: 0.58, s: 0.085 };
 

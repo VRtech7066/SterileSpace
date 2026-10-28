@@ -1,4 +1,4 @@
-# Integration Plan: WonderSnap → SterileSpace
+# Integration Plan: SterileSpace Web Architecture
 
 **Status:** PROPOSAL. No existing application code has been modified. Awaiting approval.
 **Source repo:** https://github.com/AkbarSheikh-debug/wondersnap (MIT licence)
@@ -8,7 +8,7 @@
 
 ## 1. Key finding: the two projects are different stacks
 
-| | **WonderSnap** | **SterileSpace (yours)** |
+| | **SterileSpace Web** | **SterileSpace Desktop (Python)** |
 |---|---|---|
 | Language | JavaScript (ES modules), Node >= 18 | Python 3 (conda env `sterile-space`) |
 | Runtime | Browser (Chrome/Edge) + tiny Node static server | Native desktop process |
@@ -20,14 +20,14 @@
 | Threading | Single render loop (`poll()` per frame) | `app.py` single loop; `sterile_3d.py` `CVThread` + PyVista main thread |
 | Tests | Playwright (7 spec files), CI workflow | None |
 
-**Consequence:** the WonderSnap code cannot be dropped in. The JS, WebGL2 and Node server don't run in your Python processes. What *can* be reused is its **logic and algorithms**, ported to Python, and its **data** (model definitions, part labels). That shapes the whole plan.
+**Consequence:** the SterileSpace Web code runs in the browser. The JS, WebGL2 and Node server don't run in your Python processes. What *can* be reused is its **logic and algorithms**, ported to Python, and its **data** (model definitions, part labels). That shapes the whole plan.
 
 > [!IMPORTANT]
-> Both projects use the same MediaPipe `HandLandmarker` model file. **No new ML model is needed.** WonderSnap's "models" are procedural geometry definitions (`src/models/*.js`), not neural networks.
+> Both projects use the same MediaPipe `HandLandmarker` model file. **No new ML model is needed.** SterileSpace Web's "models" are procedural geometry definitions (`src/models/*.js`), not neural networks.
 
 ---
 
-## 2. WonderSnap architecture (what I read)
+## 2. SterileSpace Web architecture
 
 ```
 index.html / styles.css / server.mjs        UI shell + zero-dependency static server
@@ -104,7 +104,7 @@ A new entry point, `app_wonder.py`, would be the only file wiring the pieces tog
 - Do not replace the dual-palm 2 s unlock. It would be kept as the gate in front of the new machine.
 
 ### 4.3 Phase 3: Models and content (choose one, needs your decision)
-WonderSnap's models are **procedural point clouds with named, explodable parts** (Heart, Brain, Skull, Skeleton, Lungs, Kidney, Eye, Ear, Tooth, plus engines, vehicles, wonders).
+SterileSpace Web models are **procedural point clouds with named, explodable parts** (Heart, Brain, Skull, Skeleton, Lungs, Kidney, Eye, Ear, Tooth, plus engines, vehicles, monuments).
 
 | Option | Description | Effort | Fit for a "sterile/clinical" tool |
 |---|---|---|---|
@@ -115,10 +115,10 @@ WonderSnap's models are **procedural point clouds with named, explodable parts**
 
 **Recommendation: Phase 1 + 2, then Option C or A.** Skip B.
 
-Rendering note: WonderSnap renders 200–250k particles with GPU transform feedback. PyVista/VTK has no equivalent. Expect roughly 20–50k points at interactive rates, so the particle-physics effects (swirl, burst, morph) would be simplified or dropped. The geometry carries over; the visual style will not match.
+Rendering note: SterileSpace Web renders 200–250k particles with GPU transform feedback. PyVista/VTK has no equivalent. Expect roughly 20–50k points at interactive rates, so the particle-physics effects (swirl, burst, morph) would be simplified or dropped. The geometry carries over; the visual style will not match.
 
 ### 4.4 Phase 4: Optional features (each independent, each opt-in)
-| WonderSnap feature | Python equivalent | Notes |
+| SterileSpace Web feature | Python equivalent | Notes |
 |---|---|---|
 | Voice commands (Web Speech) | `speech_recognition` or `vosk` | New dependency. Voice is hands-free, which is relevant for a sterile setting, but it needs a mic and offline-model decisions |
 | Read-aloud (TTS) | `pyttsx3` / macOS `say` | `say` needs no dependency on this Mac |

@@ -1,4 +1,4 @@
-// WonderSnap (browser): snap -> particle burst, fist -> form a model, open hand -> next wonder or EXPLODED VIEW
+// SterileSpace (browser): snap -> particle burst, fist -> form a model, open hand -> next model or EXPLODED VIEW
 // (hand openness = how far apart the parts fly), twist = rotate, ✌ = next, ☝ point = pick a part, pinch = pull it
 // out, two hands = zoom, snap = dissolve. Plus quiz, voice, cut-away, recording, beating heart / breathing lungs.
 // MediaPipe (hands) + WebGL2 (GPU particles via transform feedback) + procedural models.
@@ -466,7 +466,7 @@ class App {
     this.lastRecording = { size: blob.size, type: blob.type };
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `wondersnap-${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}.webm`;
+    a.download = `sterilespace-${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}.webm`;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 10000);
     this.toast(`💾 Saved ${(blob.size / 1e6).toFixed(1)} MB video`);
@@ -908,7 +908,7 @@ function boot() {
     if (hero) hero.hidden = true;
   }
 
-  window.wonderSnap = {
+  window.sterileSpace = window.wonderSnap = {
     app, CATALOG, CFG, synth: synthHand,
     ready: () => app.store.request(app.ctl.state.index),
     advance: (s, hand, hand2) => app.advance(s, hand, hand2),

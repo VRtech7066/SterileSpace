@@ -12,7 +12,7 @@ export const IDLE = 'idle', SPHERE = 'sphere', FORMED = 'formed', DISSOLVE = 'di
 export const SIM = { idle: 0, sphere: 1, formed: 2, dissolve: 3 };
 export const DISSOLVE_S = 1.2, FADE_IN_S = 0.35;
 
-export class WonderState {
+export class SterileState {
   constructor(n, isMachine = () => false, start = 0) {
     this.n = n; this.isMachine = isMachine; this.index = start;
     this.state = IDLE; this.tState = 0; this.kick = false; this.fadeIn = false;
@@ -63,3 +63,6 @@ export class WonderState {
     return 1;
   }
 }
+
+export const WonderState = SterileState;
+

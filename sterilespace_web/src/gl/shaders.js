@@ -1,4 +1,4 @@
-// GLSL ES 3.00 ports of wondersnap/shaders/*.vert|frag (WebGL2). The update step runs with transform
+// GLSL ES 3.00 WebGL2 shaders. The update step runs with transform
 // feedback exactly like the desktop version. UPDATE_VS MUST stay numerically identical to src/logic/simRef.js.
 
 // Cursor repulsion, applied to the *drawn* position only (clip space), so the physics step stays identical to

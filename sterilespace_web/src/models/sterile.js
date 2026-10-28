@@ -1,5 +1,4 @@
-// World wonders built purely from math + real-world measurements (meters, y up, viewer looks along -z).
-// JS port of wondersnap/wonders.py (8 wonders) + 3 new monuments (Big Ben, Christ the Redeemer, Sydney Opera House).
+// World monuments built purely from math + real-world measurements (meters, y up, viewer looks along -z).
 import {
   Part, line, polyline, tri, quad, boxSurface, boxEdges, revolve, cylinder, ring, transform, flatten, tube,
   paramSurface, ellipsoid, disc, TAU,
@@ -416,3 +415,7 @@ export const WONDERS = [
   { name: 'Christ the Redeemer', build: christRedeemer, color: [0.85, 0.92, 1.0], fact: 'Rio · 30 m statue · 28 m arm span' },
   { name: 'Sydney Opera House', build: sydneyOperaHouse, color: [0.95, 0.95, 0.8], fact: 'Sydney · shells up to 67 m' },
 ];
+
+export const STERILE_MODELS = WONDERS;
+
+

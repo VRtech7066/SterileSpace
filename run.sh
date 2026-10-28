@@ -3,7 +3,7 @@
 # Usage:
 #   bash run.sh           -> launches app.py      (2D OpenCV viewer)
 #   bash run.sh 3d        -> launches sterile_3d.py (PyVista 3D viewer)
-#   bash run.sh wonder    -> launches WonderSnap Web App (start_web.sh)
+#   bash run.sh sterile   -> launches SterileSpace Web App (start_web.sh)
 set -e
 ENV_NAME="sterile-space"
 
@@ -23,8 +23,8 @@ conda activate "$ENV_NAME"
 if [ "${1}" = "3d" ]; then
     echo "🧠 Starting SterileSpace 3D — PyVista Volumetric Viewer (sterile_3d.py) ..."
     python sterile_3d.py
-elif [ "${1}" = "wonder" ]; then
-    echo "🫲 Starting WonderSnap Web App (start_web.sh) ..."
+elif [ "${1}" = "sterile" ] || [ "${1}" = "wonder" ] || [ "${1}" = "web" ]; then
+    echo "🫲 Starting SterileSpace Web App (start_web.sh) ..."
     ./start_web.sh "${@:2}"
 else
     echo "🩻 Starting SterileSpace 2D — Bimanual Spatial Clinical Viewer (app.py) ..."

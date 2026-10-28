@@ -1,4 +1,4 @@
-// Surface / line samplers (JS port of wondersnap/sampling.py + new primitives for machines).
+// Surface / line samplers (procedural primitives for models and machines).
 // Every Part knows its measure (length or area) so points are split by measure * density, giving an
 // even-looking density across a whole model. Units are whatever the model uses (m or mm), y is up.
 import { makeRng } from './rng.js';

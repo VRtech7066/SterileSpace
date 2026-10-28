@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# start_web.sh — Launch WonderSnap Web Application
+# start_web.sh — Launch SterileSpace Web Application
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-WEB_DIR="$SCRIPT_DIR/wondersnap_web"
+WEB_DIR="$SCRIPT_DIR/sterilespace_web"
 
 if [ ! -d "$WEB_DIR" ]; then
     echo "❌ Error: '$WEB_DIR' does not exist."
@@ -23,7 +23,7 @@ if [ ! -d "node_modules" ]; then
 fi
 
 PORT="${1:-${PORT:-5173}}"
-echo "🚀 Starting WonderSnap Web Server on http://localhost:${PORT} ..."
+echo "🚀 Starting SterileSpace Web Server on http://localhost:${PORT} ..."
 echo "🌐 Open http://localhost:${PORT} in your web browser (Chrome or Edge recommended for WebGL2 and camera access)."
 echo "💡 Press Ctrl+C to terminate."
 

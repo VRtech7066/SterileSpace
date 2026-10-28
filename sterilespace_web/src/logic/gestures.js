@@ -1,5 +1,5 @@
 // Hand pose (OPEN / FIST / PEACE / OTHER), continuous openness, and snap detection from MediaPipe's
-// 21 normalized landmarks. Port of wondersnap/gestures.py (same thresholds) + openness and peace sign.
+// 21 normalized landmarks with openness and peace sign classification.
 export const WRIST = 0, THUMB_TIP = 4, MIDDLE_MCP = 9, MIDDLE_TIP = 12;
 export const TIPS = [8, 12, 16, 20], PIPS = [6, 10, 14, 18], MCPS = [5, 9, 13, 17];
 export const OPEN = 'open', FIST = 'fist', PEACE = 'peace', POINT = 'point', OTHER = 'other', NONE = 'none';

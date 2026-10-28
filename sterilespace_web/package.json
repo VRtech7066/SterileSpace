@@ -1,7 +1,7 @@
 {
-  "name": "wondersnap",
+  "name": "sterilespace",
   "version": "1.0.0",
-  "description": "Gesture-controlled 3D wonders, engines and cars made of glowing GPU particles (MediaPipe + WebGL2).",
+  "description": "Zero-contact 3D spatial computing and medical particle viewer controlled by real-time hand gestures.",
   "type": "module",
   "engines": {
     "node": ">=18"

@@ -1,10 +1,10 @@
 // Glue between hand landmarks and the state machine. Pure logic -> unit-testable with synthetic hands.
 import { classify, openness, pinched, PoseDebouncer, SnapDetector, GESTURE_PROFILES, STANDARD, NONE } from './gestures.js';
-import { WonderState } from './state.js';
+import { SterileState } from './state.js';
 
 export class Controller {
   constructor(n, isMachine = () => false, holdFrames = 4) {
-    this.state = new WonderState(n, isMachine);
+    this.state = new SterileState(n, isMachine);
     this.debounce = new PoseDebouncer(holdFrames);
     this.snap = new SnapDetector();
     this.gestureSensitivity = 'standard';
