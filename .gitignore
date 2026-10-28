@@ -1,0 +1,61 @@
+# ==============================================================================
+# SterileSpace - Master .gitignore
+# Single source of truth for the entire repository
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Python Environments & Caches
+# ------------------------------------------------------------------------------
+v/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# ------------------------------------------------------------------------------
+# Node Dependencies & Package Managers
+# ------------------------------------------------------------------------------
+node_modules/
+wondersnap_web/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ------------------------------------------------------------------------------
+# Testing & Build Artifacts
+# ------------------------------------------------------------------------------
+wondersnap_web/playwright-report/
+wondersnap_web/test-results/
+wondersnap_web/screenshots/
+playwright-report/
+test-results/
+screenshots/
+.omni/
+.tmp/
+
+# ------------------------------------------------------------------------------
+# Operating System & Caches
+# ------------------------------------------------------------------------------
+CACHEDIR.TAG
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# ------------------------------------------------------------------------------
+# IDEs & Local Environment Configurations
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.log
+.env
